@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const skills = [
   { name: 'JavaScript', icon: '/icons/javascript.svg' },
@@ -31,14 +32,19 @@ export default function Skills() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <motion.img
-                src={skill.icon}
-                alt={skill.name}
-                className="w-16 h-16 mb-2"
+              <motion.div
+                className="w-16 h-16 mb-2 relative"
                 initial={{ opacity: 0.6 }}
                 animate={{ opacity: hoveredSkill === skill.name ? 1 : 0.6 }}
                 transition={{ duration: 0.2 }}
-              />
+              >
+                <Image
+                  src={skill.icon}
+                  alt={skill.name}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </motion.div>
               <motion.span
                 className="text-sm font-medium text-center"
                 initial={{ opacity: 0 }}

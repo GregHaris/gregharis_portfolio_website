@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+  const router = useRouter()
 
   useEffect(() => setMounted(true), [])
 

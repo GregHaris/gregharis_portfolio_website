@@ -18,7 +18,7 @@ const projects = [
   // Add more projects here...
 ]
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+export default async function ProjectPage({ params }: { params: { id: string } }) {
   const project = projects.find(p => p.id === params.id)
 
   if (!project) {
@@ -26,19 +26,21 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white pt-20">
+    <div className="min-h-screen bg-background text-foreground pt-20">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <Link href="/#projects" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-6">
           <ArrowLeft className="mr-2" /> Back to all projects
         </Link>
         <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={800}
-          height={600}
-          className="w-full h-auto mb-6 rounded-lg"
-        />
+        <div className="relative w-full h-96 mb-6">
+          <Image
+            src={project.image}
+            alt={project.title}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-lg"
+          />
+        </div>
         <p className="text-lg mb-6">{project.fullDescription}</p>
         <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
         <ul className="list-disc list-inside mb-6">

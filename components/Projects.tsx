@@ -31,13 +31,15 @@ export default function Projects() {
           {projects.map((project) => (
             <Link key={project.id} href={`/projects/${project.id}`} className="block">
               <div className="bg-card text-card-foreground p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={300}
-                  className="mb-4 rounded"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded"
+                  />
+                </div>
                 <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
                 <p>{project.description}</p>
               </div>
