@@ -13,7 +13,7 @@ export default function Hero() {
       </p>
       <div className="flex space-x-4 mb-12">
         <Link
-          href="https://www.linkedin.com/in/johndoe"
+          href="https://www.linkedin.com/in/dgregharis"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
@@ -22,7 +22,7 @@ export default function Hero() {
           <span className="sr-only">LinkedIn</span>
         </Link>
         <Link
-          href="https://github.com/johndoe"
+          href="https://github.com/gregharis"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
