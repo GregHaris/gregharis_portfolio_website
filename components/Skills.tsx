@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const skills = [
   { name: 'JavaScript', icon: '/icons/javascript.svg' },
@@ -15,10 +15,10 @@ const skills = [
   { name: 'Docker', icon: '/icons/docker.svg' },
   { name: 'AWS', icon: '/icons/aws.svg' },
   { name: 'Git', icon: '/icons/git.svg' },
-]
+];
 
 export default function Skills() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   return (
     <section id="skills" className="py-20 bg-background text-foreground">
@@ -60,6 +60,5 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

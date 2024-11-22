@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -20,7 +20,7 @@ const projects = [
     description: 'A real-time chat application using WebSockets.',
     image: '/placeholder.svg?height=300&width=400',
   },
-]
+];
 
 export default function Projects() {
   return (
@@ -29,7 +29,11 @@ export default function Projects() {
         <h2 className="text-4xl font-bold mb-12 text-center">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <Link key={project.id} href={`/projects/${project.id}`} className="block">
+            <Link
+              key={project.id}
+              href={`/projects/${project.id}`}
+              className="block"
+            >
               <div className="bg-card text-card-foreground p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105">
                 <div className="relative w-full h-48 mb-4">
                   <Image
@@ -48,6 +52,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
