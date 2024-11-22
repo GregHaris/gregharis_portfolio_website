@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/marck-script": "^5.1.0",
     "@icons-pack/react-simple-icons": "^10.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@types/node": "22.9.1",
