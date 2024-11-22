@@ -10,9 +10,6 @@ export default function Hero() {
     <section className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground px-4 pt-16">
       <h1 className="text-8xl font-bold mb-6 text-center">Grëg Häris</h1>
       <h2 className="text-3xl mb-8 text-center"> <TypewriterAnimation/></h2>
-      <p className="text-xl mb-12 max-w-2xl text-center">
-        Crafting elegant solutions to complex problems
-      </p>
       <div className="flex space-x-4 mb-12">
         <Link
           href="https://www.linkedin.com/in/dgregharis"
