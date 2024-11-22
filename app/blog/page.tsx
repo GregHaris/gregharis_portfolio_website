@@ -1,11 +1,15 @@
-import Link from 'next/link'
-import Navbar from '@/components/Navbar'
+import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 const blogPosts = [
   { id: 1, title: 'Getting Started with React', date: '2023-06-01' },
   { id: 2, title: 'Advanced TypeScript Techniques', date: '2023-06-15' },
-  { id: 3, title: 'Building Scalable Node.js Applications', date: '2023-07-01' },
-]
+  {
+    id: 3,
+    title: 'Building Scalable Node.js Applications',
+    date: '2023-07-01',
+  },
+];
 
 export default function BlogPage() {
   return (
@@ -15,9 +19,15 @@ export default function BlogPage() {
         <h1 className="text-4xl font-bold mb-8">Blog</h1>
         <div className="space-y-6">
           {blogPosts.map((post) => (
-            <div key={post.id} className="border-b border-gray-200 dark:border-gray-700 pb-6">
+            <div
+              key={post.id}
+              className="border-b border-gray-200 dark:border-gray-700 pb-6"
+            >
               <h2 className="text-2xl font-semibold mb-2">
-                <Link href={`/blog/${post.id}`} className="hover:text-blue-600 dark:hover:text-blue-400">
+                <Link
+                  href={`/blog/${post.id}`}
+                  className="hover:text-blue-600 dark:hover:text-blue-400"
+                >
                   {post.title}
                 </Link>
               </h2>
@@ -27,6 +37,5 @@ export default function BlogPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

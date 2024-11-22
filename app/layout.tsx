@@ -1,19 +1,20 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
-import type { Metadata } from 'next'
+import './globals.css';
+import { Inter } from 'next/font/google';
+import { ThemeProvider } from '@/components/theme-provider';
+import type { Metadata } from 'next';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'John Doe - Software Developer',
-  description: 'Portfolio website of John Doe, a software developer specializing in web applications.',
-}
+  description:
+    'Portfolio website of John Doe, a software developer specializing in web applications.',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -23,6 +24,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
-
