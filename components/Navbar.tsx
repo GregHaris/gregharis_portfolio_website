@@ -40,25 +40,25 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => scrollToSection('about')}
-              className="hover:text-gray-600 dark:hover:text-gray-300"
+              className="hover:text-gray-500 dark:hover:text-gray-300"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('projects')}
-              className="hover:text-gray-600 dark:hover:text-gray-300"
+              className="hover:text-gray-500 dark:hover:text-gray-300"
             >
               Projects
             </button>
             <button
               onClick={() => scrollToSection('skills')}
-              className="hover:text-gray-600 dark:hover:text-gray-300"
+              className="hover:text-gray-500 dark:hover:text-gray-300"
             >
               Skills
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="hover:text-gray-600 dark:hover:text-gray-300"
+              className="hover:text-gray-500 dark:hover:text-gray-300"
             >
               Contact
             </button>
