@@ -1,10 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { Marck_Script } from 'next/font/google';
 import { Moon, Sun } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
+
+const marckScript = Marck_Script({
+  weight: '400',
+  style: 'normal',
+  subsets: ['latin'],
+});
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
@@ -24,7 +31,10 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background text-foreground shadow-md">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-xl font-bold">
+          <Link
+            href="/"
+            className={`${marckScript.className} text-3xl`}
+          >
             Grëg Häris
           </Link>
           <div className="flex items-center space-x-4">
@@ -53,7 +63,7 @@ export default function Navbar() {
               Contact
             </button>
             <Link
-              href="/blog"
+              href="https://dev.to/gregharis"
               className="hover:text-gray-600 dark:hover:text-gray-300"
             >
               Blog
