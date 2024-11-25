@@ -13,7 +13,22 @@ const marckScript = Marck_Script({
   subsets: ['latin'],
 });
 
-export default function Navbar() {
+interface NavLinkProps {
+  label: string;
+  onClick: () => void;
+}
+
+const linkStyles = `
+  hover:text-gray-500 dark:hover:text-gray-300
+`;
+
+const NavLink: React.FC<NavLinkProps> = ({ label, onClick }) => (
+  <button onClick={onClick} className={linkStyles}>
+    {label}
+  </button>
+);
+
+const Navbar: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const router = useRouter();
@@ -27,41 +42,24 @@ export default function Navbar() {
     }
   };
 
+  const navLinks: NavLinkProps[] = [
+    { label: 'About', onClick: () => scrollToSection('about') },
+    { label: 'Projects', onClick: () => scrollToSection('projects') },
+    { label: 'Skills', onClick: () => scrollToSection('skills') },
+    { label: 'Contact', onClick: () => scrollToSection('contact') },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background text-foreground shadow-md">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link
-            href="/"
-            className={`${marckScript.className} text-3xl`}
-          >
+          <Link href="/" className={`${marckScript.className} text-3xl`}>
             Grëg Häris
           </Link>
           <div className="flex items-center space-x-4">
-            <button
-              onClick={() => scrollToSection('about')}
-              className="hover:text-gray-500 dark:hover:text-gray-300"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="hover:text-gray-500 dark:hover:text-gray-300"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection('skills')}
-              className="hover:text-gray-500 dark:hover:text-gray-300"
-            >
-              Skills
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="hover:text-gray-500 dark:hover:text-gray-300"
-            >
-              Contact
-            </button>
+            {navLinks.map((link, index) => (
+              <NavLink key={index} {...link} />
+            ))}
             <Link
               href="https://dev.to/gregharis"
               className="hover:text-gray-600 dark:hover:text-gray-300"
@@ -85,4 +83,6 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
