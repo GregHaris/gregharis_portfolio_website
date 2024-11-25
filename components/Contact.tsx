@@ -24,12 +24,12 @@ const contactLinks: ContactLinkProps[] = [
     icon: SiLinkedin,
     label: 'LinkedIn',
   },
-  { href: 'https://www.x.com/IamAbovExcuse', icon: SiX, label: 'X' },
+  { href: 'https://www.x.com/IamAbovExcuse', icon: SiX, label: 'X.com' },
 ];
 
 const linkStyles = `
   inline-flex items-center gap-2 px-4 py-2 rounded-md transition-colors
-  text-foreground hover:text-black dark:hover:text-white
+  text-foreground hover:text-white dark:hover:text-black
   hover:bg-black dark:hover:bg-white
 `;
 
