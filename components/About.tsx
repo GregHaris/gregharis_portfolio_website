@@ -4,9 +4,11 @@ export default function About() {
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold mb-8">About Me</h2>
         <p className="text-lg mb-4">
-          I'm a dedicated software developer passionate about crafting
-          innovative web applications. Having recently transitioned from a
-          career in Real Estate as an AirBnB Property Manager/ Host to focusing full-time on Software Development, I've quickly gained proficiency in  various web technologies.
+          Hey <span className="wave">👋</span>! My name is Grëg Häris. I'm a dedicated software developer
+          passionate about crafting innovative web applications. Having recently
+          transitioned from a career in Real Estate as an AirBnB Property
+          Manager/ Host to focusing full-time on Software Development, I've
+          quickly gained proficiency in various web technologies.
         </p>
         <p className="text-lg mb-4">
           My expertise lies in CSS, JavaScript, React, TypeScript, and Node.js.
