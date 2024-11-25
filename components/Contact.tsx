@@ -1,7 +1,55 @@
-import { SiGithub, SiLinkedin, SiX, SiGmail } from '@icons-pack/react-simple-icons';
+import {
+  SiGithub,
+  SiLinkedin,
+  SiX,
+  SiGmail,
+} from '@icons-pack/react-simple-icons';
 import Link from 'next/link';
 
-export default function Contact() {
+interface ContactLinkProps {
+  href: string;
+  icon: React.ElementType;
+  label: string;
+}
+
+const contactLinks: ContactLinkProps[] = [
+  {
+    href: 'mailto:d.gregharis@gmail.com',
+    icon: SiGmail,
+    label: 'd.gregharis@gmail.com',
+  },
+  { href: 'https://github.com/gregharis', icon: SiGithub, label: 'GitHub' },
+  {
+    href: 'https://www.linkedin.com/in/dgregharis',
+    icon: SiLinkedin,
+    label: 'LinkedIn',
+  },
+  { href: 'https://www.x.com/IamAbovExcuse', icon: SiX, label: 'X' },
+];
+
+const linkStyles = `
+  inline-flex items-center gap-2 px-4 py-2 rounded-md transition-colors
+  text-foreground hover:text-black dark:hover:text-white
+  hover:bg-black dark:hover:bg-white
+`;
+
+const ContactLink: React.FC<ContactLinkProps> = ({
+  href,
+  icon: Icon,
+  label,
+}) => (
+  <Link
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={linkStyles}
+  >
+    <Icon className="w-5 h-5" />
+    <span>{label}</span>
+  </Link>
+);
+
+const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-background text-foreground">
       <div className="max-w-3xl mx-auto px-4">
@@ -17,42 +65,9 @@ export default function Contact() {
         </p>
 
         <div className="flex flex-wrap gap-6">
-          <Link
-            href="mailto:john.doe@example.com"
-            className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-          >
-            <SiGmail className="w-5 h-5" />
-            <span>d.gregharis@gmail.com</span>
-          </Link>
-
-          <Link
-            href="https://github.com/gregharis"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-          >
-            <SiGithub className="w-5 h-5" />
-            <span>GitHub</span>
-          </Link>
-
-          <Link
-            href="https://www.linkedin.com/in/dgregharis"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-          >
-            <SiLinkedin className="w-5 h-5" />
-            <span>LinkedIn</span>
-          </Link>
-
-          <Link
-            href="https://www.x.com/IamAbovExcuse"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-          >
-            <SiX className="w-5 h-5" />
-          </Link>
+          {contactLinks.map((link, index) => (
+            <ContactLink key={index} {...link} />
+          ))}
         </div>
 
         <div className="mt-12 text-lg">
@@ -62,4 +77,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;
