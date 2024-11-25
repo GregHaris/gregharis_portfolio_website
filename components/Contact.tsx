@@ -1,38 +1,64 @@
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { SiGithub, SiLinkedin, SiX, SiGmail } from '@icons-pack/react-simple-icons';
+import Link from 'next/link';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-background text-foreground px-4">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center">Contact Me</h2>
-        <form className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium mb-2">
-              Name
-            </label>
-            <Input id="name" placeholder="Your name" />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
-              Email
-            </label>
-            <Input id="email" type="email" placeholder="your@email.com" />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-2">
-              Message
-            </label>
-            <Textarea id="message" placeholder="Your message" rows={4} />
-          </div>
-          <Button
-            type="submit"
-            className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+    <section id="contact" className="py-20 bg-background text-foreground">
+      <div className="max-w-3xl mx-auto px-4">
+        <h2 className="text-4xl font-bold mb-8">
+          Contact me! <span className="wave">👋</span>
+        </h2>
+
+        <p className="text-lg mb-8">
+          I'm always excited to hear about and explore new projects and
+          opportunities. Whether you have a question, want to discuss a
+          potential collaboration or just want to say hi, feel free to reach
+          out!
+        </p>
+
+        <div className="flex flex-wrap gap-6">
+          <Link
+            href="mailto:john.doe@example.com"
+            className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
           >
-            Send Message
-          </Button>
-        </form>
+            <SiGmail className="w-5 h-5" />
+            <span>d.gregharis@gmail.com</span>
+          </Link>
+
+          <Link
+            href="https://github.com/gregharis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+          >
+            <SiGithub className="w-5 h-5" />
+            <span>GitHub</span>
+          </Link>
+
+          <Link
+            href="https://www.linkedin.com/in/dgregharis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+          >
+            <SiLinkedin className="w-5 h-5" />
+            <span>LinkedIn</span>
+          </Link>
+
+          <Link
+            href="https://www.x.com/IamAbovExcuse"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+          >
+            <SiX className="w-5 h-5" />
+          </Link>
+        </div>
+
+        <div className="mt-12 text-lg">
+          <p>Currently based in Abuja, Nigeria 🇳🇬</p>
+          <p className="mt-2">Open to remote opportunities worldwide 🌎</p>
+        </div>
       </div>
     </section>
   );
