@@ -5,16 +5,18 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const skills = [
+  { name: 'Git', icon: '/icons/git.svg' },
+  { name: 'HTML5', icon: '/icons/html.svg' },
+  { name: 'CSS', icon: '/icons/css.svg' },
   { name: 'JavaScript', icon: '/icons/javascript.svg' },
   { name: 'TypeScript', icon: '/icons/typescript.svg' },
+  { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
   { name: 'React', icon: '/icons/react.svg' },
   { name: 'Node.js', icon: '/icons/nodejs.svg' },
+  { name: 'Next.js', icon: '/icons/nextjs.svg' },
   { name: 'Express', icon: '/icons/express.svg' },
-  { name: 'MongoDB', icon: '/icons/mongodb.svg' },
-  { name: 'GraphQL', icon: '/icons/graphql.svg' },
+  { name: 'PostgreSQL', icon: '/icons/postgresql.svg' },
   { name: 'Docker', icon: '/icons/docker.svg' },
-  { name: 'AWS', icon: '/icons/aws.svg' },
-  { name: 'Git', icon: '/icons/git.svg' },
 ];
 
 export default function Skills() {
