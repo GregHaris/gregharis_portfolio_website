@@ -8,9 +8,9 @@ import type { Metadata } from 'next';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'John Doe - Software Developer',
+  title: 'Grëg Häris - Software Developer',
   description:
-    'Portfolio website of John Doe, a software developer specializing in web applications.',
+    'Portfolio website of Grëg Häris, a software developer specializing in web applications.',
 };
 
 export default function RootLayout({
