@@ -46,7 +46,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label }) => (
 const Hero: React.FC = () => {
   return (
     <section className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground px-4 pt-16">
-      <h1 className="text-8xl font-bold mb-6 text-center">Grëg Häris</h1>
+      <h1 className="text-9xl font-bold mb-9 text-center">Grëg Häris</h1>
       <h2 className="text-3xl mb-8 text-center text-gray-500">
         {' '}
         <TypewriterAnimation />
