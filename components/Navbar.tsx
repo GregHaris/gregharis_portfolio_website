@@ -1,17 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { Marck_Script } from 'next/font/google';
 import { Moon, Sun } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 
-const marckScript = Marck_Script({
-  weight: '400',
-  style: 'normal',
-  subsets: ['latin'],
-});
+import Logo from './logo';
 
 interface NavLinkProps {
   label: string;
@@ -28,19 +23,19 @@ const NavLink: React.FC<NavLinkProps> = ({ label, onClick }) => (
   </button>
 );
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Navbar: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const router = useRouter();
 
   useEffect(() => setMounted(true), []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const navLinks: NavLinkProps[] = [
     { label: 'About', onClick: () => scrollToSection('about') },
@@ -53,8 +48,8 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background text-foreground shadow-md">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className={`${marckScript.className} text-3xl`}>
-            Grëg Häris
+          <Link href="/">
+            <Logo />
           </Link>
           <div className="flex items-center space-x-4">
             {navLinks.map((link, index) => (
