@@ -67,10 +67,9 @@ body {
   }
 }
 
-/* Waving hand animation */
 .wave {
   animation-name: wave-animation;
-  animation-duration: 2.5s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
   transform-origin: 70% 70%;
   display: inline-block;
@@ -93,24 +92,13 @@ body {
   }
 }
 
-/* Enable hover effects on touch devices */
-@media (hover: hover) and (pointer: fine) {
+@media (hover: none) {
   .hover\:bg-gray-100:hover {
-    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+    background-color: inherit;
   }
 
   .dark .dark\:hover\:bg-gray-800:hover {
-    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
-  }
-}
-
-@media (hover: none) {
-  .hover\:bg-gray-100:active {
-    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-  }
-
-  .dark .dark\:hover\:bg-gray-800:active {
-    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+    background-color: inherit;
   }
 }
 
