@@ -15,5 +15,6 @@ Visit the portfolio website deployed on Vercel:
 Feel free to contact me at <d.gregharis@gmail.com> if you have any questions or needs.
 
 ## Social Media (Optional)
+
 - [LinkedIn](https://www.linkedin.com/in/dgregharis/)
 - [X.com](https://twitter.com/IamAbovExcuse)
