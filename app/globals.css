@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 body {
@@ -66,14 +67,7 @@ body {
   }
 }
 
-.skill-icon {
-  transition: transform 0.3s ease-in-out;
-}
-
-.skill-icon:hover {
-  transform: scale(1.1);
-}
-
+/* Waving hand animation */
 .wave {
   animation-name: wave-animation;
   animation-duration: 2.5s;
@@ -92,3 +86,31 @@ body {
   60% { transform: rotate( 0.0deg) }
   100% { transform: rotate( 0.0deg) }
 }
+
+@supports (backdrop-filter: blur(12px)) {
+  .bg-background\/80 {
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Enable hover effects on touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .hover\:bg-gray-100:hover {
+    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  }
+
+  .dark .dark\:hover\:bg-gray-800:hover {
+    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+  }
+}
+
+@media (hover: none) {
+  .hover\:bg-gray-100:active {
+    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  }
+
+  .dark .dark\:hover\:bg-gray-800:active {
+    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+  }
+}
+

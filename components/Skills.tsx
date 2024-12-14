@@ -33,6 +33,8 @@ export default function Skills() {
               className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800"
               onHoverStart={() => setHoveredSkill(skill.name)}
               onHoverEnd={() => setHoveredSkill(null)}
+              onTouchStart={() => setHoveredSkill(skill.name)}
+              onTouchEnd={() => setHoveredSkill(null)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
