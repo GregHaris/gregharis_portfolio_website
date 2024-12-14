@@ -11,7 +11,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: '1',
+    id: 'greg-chatbot',
     title: "Greg's Chatbot",
     description:
       "A conversational AI powered by Groq AI's llama3, built with a focus on user experience.",

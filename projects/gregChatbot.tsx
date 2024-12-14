@@ -2,7 +2,7 @@
 import { Project } from '@/types/Project';
 
 const gregChatbot: Project = {
-  id: '1',
+  id: 'greg-chatbot',
   title: "Greg's Chatbot",
   description:
     'An AI-powered chatbot built with React, TypeScript, Node.js, TailwindCSS, Next.js, and more.',
