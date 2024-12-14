@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
         </h2>
 
         <p className="text-lg mb-8">
-          I'm always excited to hear about and explore new projects and
+          I&apos;m always excited to hear about and explore new projects and
           opportunities. Whether you have a question, want to discuss a
           potential collaboration or just want to say hi, feel free to reach
           out!
