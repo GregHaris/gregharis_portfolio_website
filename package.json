@@ -31,7 +31,7 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "3.4.16",
     "tailwindcss-animate": "^1.0.7",
-    "types": "link:next-themes/dist/types",
+    "types": "^0.1.1",
     "typescript": "5.7.2"
   },
   "devDependencies": {
