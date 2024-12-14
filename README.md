@@ -1,4 +1,4 @@
-# Grëg Häris Portfolio Website
+# Grëg Häris' Portfolio Website
 
 This is the portfolio website of Grëg Häris, showcasing his skills and experience in web development. Built with React, TypeScript, Next.js, TailwindCSS, and Radix UI for a performant and visually appealing experience.
 
@@ -8,7 +8,7 @@ The website highlights past projects, provides contact information, and demonstr
 
 Visit the portfolio website deployed on Vercel:
 
-👉 **[Grëg Häris Portfolio website](https://dgregharis.vercel.app/)**
+👉 **[Grëg Häris' Portfolio website](https://dgregharis.vercel.app/)**
 
 ## Contact
 
