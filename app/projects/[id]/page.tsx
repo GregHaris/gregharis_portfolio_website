@@ -1,8 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { notFound } from 'next/navigation';
-import { SiGithub } from '@icons-pack/react-simple-icons';
 
 import ProjectImage from '@/components/ProjectImage';
 import ProjectLinks from '@/components/ProjectLinks';
