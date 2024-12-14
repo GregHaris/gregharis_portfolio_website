@@ -1,4 +1,3 @@
-
 import { Project } from '@/types/Project';
 
 const gregChatbot: Project = {
@@ -31,7 +30,7 @@ const gregChatbot: Project = {
     </>
   ),
   image1: '/greg-chatbot.png?height=500&width=500',
-  image2: '/greg-chatbot.gif', // Replace with the path to your GIF
+  image2: '/greg-chatbot.gif',
   technologies: [
     'React',
     'TypeScript',
