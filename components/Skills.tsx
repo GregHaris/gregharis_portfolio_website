@@ -1,8 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 const skills = [
   { name: 'Git', icon: '/icons/git.svg' },

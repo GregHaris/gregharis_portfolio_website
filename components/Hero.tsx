@@ -1,13 +1,14 @@
 'use client';
 
 import { ArrowDownIcon, FileText } from 'lucide-react';
+import Link from 'next/link';
 import {
   SiGithub,
   SiLinkedin,
   SiX,
   SiGmail,
 } from '@icons-pack/react-simple-icons';
-import Link from 'next/link';
+
 import { TypewriterAnimation } from './TypewriterAnimation';
 
 interface SocialLinkProps {

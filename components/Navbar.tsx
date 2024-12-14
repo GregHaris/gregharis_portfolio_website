@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 
-import Logo from './logo';
+import Logo from './Logo';
 
 interface NavLinkProps {
   label: string;
