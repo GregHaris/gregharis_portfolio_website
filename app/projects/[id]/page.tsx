@@ -88,7 +88,7 @@ export default async function ProjectPage({
 }: {
   params: { id: string };
 }) {
-  const { id } = await params;
+  const { id } = params;
   const project = projects.find((p) => p.id === id);
 
   if (!project) {
