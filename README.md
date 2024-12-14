@@ -1,4 +1,4 @@
-# Greg Haris Portfolio Website
+# Grëg Häris Portfolio Website
 
 This is the portfolio website of Grëg Häris, showcasing his skills and experience in web development. Built with React, TypeScript, Next.js, TailwindCSS, and Radix UI for a performant and visually appealing experience.
 
