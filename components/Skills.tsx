@@ -4,7 +4,47 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const skills = [
+
+interface Skill {
+  name: string;
+  icon: string;
+}
+
+// SkillItem component to encapsulate the skill icon and name
+const SkillItem: React.FC<{ skill: Skill; isHovered: boolean }> = ({
+  skill,
+  isHovered,
+}) => (
+  <motion.div
+    className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <motion.div
+      className="w-12 h-12 sm:w-16 sm:h-16 mb-2 relative"
+      initial={{ opacity: 0.6 }}
+      animate={{ opacity: isHovered ? 1 : 0.6 }}
+      transition={{ duration: 0.2 }}
+    >
+      <Image
+        src={skill.icon}
+        alt={skill.name}
+        layout="fill"
+        objectFit="contain"
+      />
+    </motion.div>
+    <motion.span
+      className="text-sm font-medium text-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isHovered ? 1 : 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      {skill.name}
+    </motion.span>
+  </motion.div>
+);
+
+const skills: Skill[] = [
   { name: 'Git', icon: '/icons/git.svg' },
   { name: 'HTML5', icon: '/icons/html.svg' },
   { name: 'CSS', icon: '/icons/css.svg' },
@@ -30,35 +70,15 @@ export default function Skills() {
           {skills.map((skill) => (
             <motion.div
               key={skill.name}
-              className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800"
               onHoverStart={() => setHoveredSkill(skill.name)}
               onHoverEnd={() => setHoveredSkill(null)}
               onTouchStart={() => setHoveredSkill(skill.name)}
               onTouchEnd={() => setHoveredSkill(null)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
-              <motion.div
-                className="w-12 h-12 sm:w-16 sm:h-16 mb-2 relative"
-                initial={{ opacity: 0.6 }}
-                animate={{ opacity: hoveredSkill === skill.name ? 1 : 0.6 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Image
-                  src={skill.icon}
-                  alt={skill.name}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </motion.div>
-              <motion.span
-                className="text-sm font-medium text-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: hoveredSkill === skill.name ? 1 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {skill.name}
-              </motion.span>
+              <SkillItem
+                skill={skill}
+                isHovered={hoveredSkill === skill.name}
+              />
             </motion.div>
           ))}
         </div>
