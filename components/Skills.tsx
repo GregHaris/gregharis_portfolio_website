@@ -26,7 +26,7 @@ export default function Skills() {
     <section id="skills" className="py-20 bg-background text-foreground">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center">Skills</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
           {skills.map((skill) => (
             <motion.div
               key={skill.name}
@@ -37,7 +37,7 @@ export default function Skills() {
               whileTap={{ scale: 0.95 }}
             >
               <motion.div
-                className="w-16 h-16 mb-2 relative"
+                className="w-12 h-12 sm:w-16 sm:h-16 mb-2 relative"
                 initial={{ opacity: 0.6 }}
                 animate={{ opacity: hoveredSkill === skill.name ? 1 : 0.6 }}
                 transition={{ duration: 0.2 }}

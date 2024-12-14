@@ -17,12 +17,11 @@ const projects: Project[] = [
       "A conversational AI powered by Groq AI's llama3, built with a focus on user experience.",
     image: '/greg-chatbot2.png?height=500&width=500',
   },
-
 ];
 
 export default function Projects() {
   // Determine the grid layout based on the number of projects
-  const gridCols = projects.length === 1 ? 'grid-cols-1' : 'grid-cols-2';
+  const gridCols = projects.length === 1 ? 'grid-cols-1' : 'sm:grid-cols-2';
   return (
     <section id="projects" className="py-20 bg-background text-foreground px-4">
       <div className="max-w-6xl mx-auto">
@@ -40,17 +39,22 @@ export default function Projects() {
 // Reusable ProjectCard component with explicit type for 'project'
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Link href={`/projects/${project.id}`} className="block">
-      <div className="bg-card text-card-foreground p-4 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full max-w-sm">
-        <div className="relative w-full h-64 mb-4">
+    <Link
+      href={`/projects/${project.id}`}
+      className="block w-full max-w-sm mx-auto"
+    >
+      <div className="bg-card text-card-foreground p-4 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 w-full">
+        <div className="relative w-full h-48 sm:h-64 mb-4">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="rounded"
+            className="rounded object-cover"
           />
         </div>
-        <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+        <h3 className="text-xl sm:text-2xl font-semibold mb-2">
+          {project.title}
+        </h3>
         <div>{project.description}</div>
       </div>
     </Link>

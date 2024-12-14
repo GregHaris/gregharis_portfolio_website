@@ -42,7 +42,7 @@ const ContactLink: React.FC<ContactLinkProps> = ({
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className={linkStyles}
+    className={`${linkStyles} w-full sm:w-auto`}
   >
     <Icon className="w-5 h-5" />
     <span>{label}</span>
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
           out!
         </p>
 
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6">
           {contactLinks.map((link, index) => (
             <ContactLink key={index} {...link} />
           ))}

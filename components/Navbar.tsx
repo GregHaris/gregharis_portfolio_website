@@ -18,7 +18,10 @@ const linkStyles = `
 `;
 
 const NavLink: React.FC<NavLinkProps> = ({ label, onClick }) => (
-  <button onClick={onClick} className={linkStyles}>
+  <button
+    onClick={onClick}
+    className={`${linkStyles} px-4 py-2 w-full sm:w-auto text-center`}
+  >
     {label}
   </button>
 );
@@ -45,13 +48,13 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background text-foreground shadow-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex flex-col sm:flex-row justify-between items-center h-auto sm:h-16 py-4 sm:py-0">
           <Link href="/">
             <Logo />
           </Link>
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 mt-4 sm:mt-0">
             {navLinks.map((link, index) => (
               <NavLink key={index} {...link} />
             ))}

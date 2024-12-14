@@ -46,13 +46,15 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label }) => (
 
 const Hero: React.FC = () => {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground px-4 pt-16">
-      <h1 className="text-9xl font-bold mb-9 text-center">Grëg Häris</h1>
+    <section className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground px-4 pt-24 sm:pt-16">
+      <h1 className="text-5xl sm:text-9xl font-bold mb-6 sm:mb-9 text-center">
+        Grëg Häris
+      </h1>
       <h2 className="text-3xl mb-8 text-center text-gray-500">
         {' '}
         <TypewriterAnimation />
       </h2>
-      <div className="flex space-x-4 mb-12">
+      <div className="flex flex-wrap justify-center space-x-4 mb-8 sm:mb-12">
         {socialLinks.map((link, index) => (
           <SocialLink key={index} {...link} />
         ))}
