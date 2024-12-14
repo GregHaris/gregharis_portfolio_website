@@ -86,10 +86,10 @@ const projects: Project[] = [
 export default async function ProjectPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   // Await the params object to resolve it
-  const { id } = params;
+  const { id } = await params;
 
   // Find the project by ID
   const project = projects.find((p) => p.id === id);
