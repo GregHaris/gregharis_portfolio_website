@@ -1,50 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-interface Skill {
-  name: string;
-  icon: string;
-}
-
-// SkillItem component to encapsulate the skill icon and name
-const SkillItem: React.FC<{ skill: Skill; isHovered: boolean }> = ({
-  skill,
-  isHovered,
-}) => (
-  <motion.div
-    className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <motion.div
-      className="w-12 h-12 sm:w-16 sm:h-16 mb-2 relative"
-      initial={{ opacity: 0.6 }}
-      animate={{ opacity: isHovered ? 1 : 0.6 }}
-      transition={{ duration: 0.2 }}
-    >
-      <Image
-        src={skill.icon}
-        alt={skill.name}
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="object-contain"
-      />
-    </motion.div>
-    <motion.span
-      className="text-sm font-medium text-center"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isHovered ? 1 : 0 }}
-      transition={{ duration: 0.2 }}
-    >
-      {skill.name}
-    </motion.span>
-  </motion.div>
-);
-
-const skills: Skill[] = [
+const skills = [
   { name: 'Git', icon: '/icons/git.svg' },
   { name: 'HTML5', icon: '/icons/html.svg' },
   { name: 'CSS', icon: '/icons/css.svg' },
@@ -61,6 +21,32 @@ const skills: Skill[] = [
 
 export default function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [animatedSkills, setAnimatedSkills] = useState<string[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Function to animate 4 random skills
+  const animateRandomSkills = useCallback(() => {
+    const randomSkills = new Set<string>();
+    while (randomSkills.size < 4) {
+      const randomIndex = Math.floor(Math.random() * skills.length);
+      randomSkills.add(skills[randomIndex].name);
+    }
+    setAnimatedSkills(Array.from(randomSkills));
+  }, []);
+
+  // Check if the device is mobile
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Start animation on both mobile and desktop
+  useEffect(() => {
+    const intervalId = setInterval(animateRandomSkills, 2000);
+    return () => clearInterval(intervalId);
+  }, [animateRandomSkills]);
 
   return (
     <section id="skills" className="py-20 bg-background text-foreground">
@@ -68,21 +54,64 @@ export default function Skills() {
         <h2 className="text-4xl font-bold mb-12 text-center">Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
           {skills.map((skill) => (
-            <motion.div
+            <SkillItem
               key={skill.name}
-              onHoverStart={() => setHoveredSkill(skill.name)}
-              onHoverEnd={() => setHoveredSkill(null)}
-              onTouchStart={() => setHoveredSkill(skill.name)}
-              onTouchEnd={() => setHoveredSkill(null)}
-            >
-              <SkillItem
-                skill={skill}
-                isHovered={hoveredSkill === skill.name}
-              />
-            </motion.div>
+              skill={skill}
+              isMobile={isMobile}
+              hoveredSkill={hoveredSkill}
+              setHoveredSkill={setHoveredSkill}
+              animatedSkills={animatedSkills}
+            />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
+// Reusable SkillItem component
+interface SkillItemProps {
+  skill: { name: string; icon: string };
+  isMobile: boolean;
+  hoveredSkill: string | null;
+  setHoveredSkill: (name: string | null) => void;
+  animatedSkills: string[];
+}
+
+const SkillItem: React.FC<SkillItemProps> = ({
+  skill,
+  isMobile,
+  hoveredSkill,
+  setHoveredSkill,
+  animatedSkills,
+}) => (
+  <motion.div
+    className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors duration-500 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800"
+    onHoverStart={() => !isMobile && setHoveredSkill(skill.name)}
+    onHoverEnd={() => !isMobile && setHoveredSkill(null)}
+    whileHover={!isMobile ? { scale: 1.05 } : {}}
+    whileTap={!isMobile ? { scale: 0.95 } : {}}
+  >
+    <AnimatePresence>
+      <motion.div
+        className="w-12 h-12 sm:w-16 sm:h-16 mb-2 relative"
+        initial={{ opacity: 0.6 }}
+        animate={{
+          opacity:
+            animatedSkills.includes(skill.name) || hoveredSkill === skill.name
+              ? 1
+              : 0.6,
+        }}
+        transition={{ duration: 0.2 }}
+      >
+        <Image
+          src={skill.icon}
+          alt={skill.name}
+          fill
+          className="object-contain"
+        />
+      </motion.div>
+    </AnimatePresence>
+    <span className="text-sm font-medium text-center">{skill.name}</span>
+  </motion.div>
+);
