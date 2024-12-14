@@ -14,10 +14,13 @@ const projects: Project[] = [gregChatbot];
 export default async function ProjectPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  // Await the params object to resolve it
+  const { id } = await params;
+
   // Find the project by ID
-  const project = projects.find((p) => p.id === params.id);
+  const project = projects.find((p) => p.id === id);
 
   // If no project is found, return a 404 page
   if (!project) {
