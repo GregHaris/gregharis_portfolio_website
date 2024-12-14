@@ -11,7 +11,7 @@ export default function About() {
           quickly gained proficiency in various web technologies.
         </p>
         <p className="text-lg mb-4">
-          My expertise lies in CSS, JavaScript, React, TypeScript, and Node.js.
+          My expertise lies in CSS, TailwindCSS, JavaScript, React, TypeScript, and Node.js.
           I thrive on continuous learning and am always eager to explore new
           technologies and methodologies to deliver exceptional results. I'm
           particularly skilled in problem-solving and enjoy tackling complex
