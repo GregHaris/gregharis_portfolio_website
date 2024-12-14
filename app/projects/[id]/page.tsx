@@ -48,7 +48,7 @@ export default async function ProjectPage({
       <div className="max-w-4xl mx-auto px-4 py-8">
         <Link
           href="/#projects"
-          className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-6"
+          className="inline-flex items-center text-black dark:text-slate-400 hover:underline mb-6"
         >
           <ArrowLeft className="mr-2" /> Back to all projects
         </Link>
