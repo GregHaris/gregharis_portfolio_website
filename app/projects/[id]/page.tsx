@@ -88,9 +88,13 @@ export default async function ProjectPage({
 }: {
   params: { id: string };
 }) {
+  // Await the params object to resolve it
   const { id } = params;
+
+  // Find the project by ID
   const project = projects.find((p) => p.id === id);
 
+  // If no project is found, return a 404 page
   if (!project) {
     notFound();
   }
