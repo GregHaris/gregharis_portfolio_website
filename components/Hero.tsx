@@ -20,7 +20,7 @@ const socialLinks: SocialLinkProps[] = [
   },
   { href: 'https://github.com/gregharis', icon: SiGithub, label: 'GitHub' },
   { href: 'https://www.x.com/IamAbovExcuse', icon: SiX, label: 'X' },
-  { href: '/gregharisCV.pdf', icon: FileText, label: 'CV' },
+  { href: '/GregHarisCV.pdf', icon: FileText, label: 'CV' },
 ];
 
 const linkStyles = `
