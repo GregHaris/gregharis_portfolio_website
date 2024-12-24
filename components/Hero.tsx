@@ -33,6 +33,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label }) => (
     target="_blank"
     rel="noopener noreferrer"
     className={linkStyles}
+    download={label === 'CV' ? 'GregHarisCV.pdf' : undefined}
   >
     <Icon className="w-6 h-6" />
     <span className="sr-only">{label}</span>
