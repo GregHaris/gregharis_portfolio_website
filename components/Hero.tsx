@@ -10,6 +10,7 @@ interface SocialLinkProps {
   href: string;
   icon: React.ElementType;
   label: string;
+  target?: string;
 }
 
 const socialLinks: SocialLinkProps[] = [
@@ -20,20 +21,24 @@ const socialLinks: SocialLinkProps[] = [
   },
   { href: 'https://github.com/gregharis', icon: SiGithub, label: 'GitHub' },
   { href: 'https://www.x.com/IamAbovExcuse', icon: SiX, label: 'X' },
-  { href: '/GregHarisCV.pdf', icon: FileText, label: 'CV' },
+  { href: '/GregHarisCV.pdf', icon: FileText, label: 'CV', target: '_blank' },
 ];
 
 const linkStyles = `
   hover:text-gray-600 dark:hover:text-gray-300 transition-colors
 `;
 
-const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label }) => (
+const SocialLink: React.FC<SocialLinkProps> = ({
+  href,
+  icon: Icon,
+  label,
+  target,
+}) => (
   <Link
     href={href}
-    target="_blank"
+    target={target || '_blank'}
     rel="noopener noreferrer"
     className={linkStyles}
-    download={label === 'CV' ? 'GregHarisCV.pdf' : undefined}
   >
     <Icon className="w-6 h-6" />
     <span className="sr-only">{label}</span>
