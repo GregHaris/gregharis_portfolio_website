@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: 'Grëg Häris - Software Developer',
   description:
     'Portfolio website of Grëg Häris, a software developer specializing in web applications.',
+  icons: '/logo.png',
 };
 
 export default function RootLayout({
